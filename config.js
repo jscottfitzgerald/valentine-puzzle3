@@ -53,7 +53,7 @@ const GAME_CONFIG = {
             puzzle: {
                 type: 'math',
                 question: 'Month + Day of our first date = ?',
-                answer: 6
+                answer: 5
             }
         },
         
@@ -144,7 +144,7 @@ const GAME_CONFIG = {
             location: 'St. Martins Lodge',
             message: 'A special presentation awaits you, followed by a loving Valentine\'s treat for my melon! 💕',
             dressCode: 'Dress to relax in your favourite comfies and pjs ❤️‍🔥',
-            rsvp: 'Please confirm your attendance by text at 07933903888 📲'
+            rsvp: 'Do you accept? Please confirm your attendance by text at 07933903888 📲'
         }
     },
     
@@ -224,3 +224,4 @@ const GAME_CONFIG = {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = GAME_CONFIG;
 }
+
