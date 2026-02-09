@@ -1,0 +1,297 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  QUICK START GUIDE - SIDE-SCROLLING GAME INVITATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎮 WHAT YOU HAVE:
+
+A complete 2D side-scrolling platformer game where your partner:
+  • Walks through a beautiful line-art world
+  • Encounters glowing heart stations (story points)
+  • Makes decisions that branch the visual path
+  • Unlocks prizes along the way
+  • Receives your special invitation at the end
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 3-STEP CUSTOMIZATION:
+
+1️⃣  ADD YOUR CONTENT (config.js)
+   ✓ Edit story text, titles, and choices
+   ✓ Update event details (date, time, place)
+   ✓ Customize prize messages
+   ✓ Add your character sprite path (optional)
+
+2️⃣  ADD YOUR PHOTOS (images folder)
+   ✓ Put 10 photos in images/
+   ✓ Name them: scene1.jpg through scene10.jpg
+   ✓ Add your 8-bit character sprite: character.png
+
+3️⃣  TEST & SHARE
+   ✓ Open index.html in browser
+   ✓ Play through the entire game
+   ✓ Zip folder or host online to share
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 GAME CONTROLS:
+
+Arrow Keys or A/D  →  Move left/right
+Space or W         →  Jump
+E                  →  Interact with heart stations
+Mouse              →  Click choice buttons in modals
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✏️  PRIMARY FILE TO EDIT: config.js
+
+This file contains EVERYTHING you need to customize:
+
+Lines 7-145: Story Scenes
+  • Each scene = one station in the game
+  • Edit title, text, image path, prize, choices
+  
+Lines 147-160: Station Positions
+  • x, y coordinates for each heart station
+  • Adjust to change world layout
+
+Lines 163-215: Game Settings
+  • Character speed, jump power, gravity
+  • Colors, world size, camera settings
+  • Character sprite path
+
+Lines 218-225: Character Sprite
+  • Update imagePath when you add your sprite
+  • Currently uses procedural stick-figure
+
+Lines 228-235: Puzzle Configurations
+  • Add custom puzzle data here
+  • Link to puzzle implementation in game.js
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚨 CRITICAL: UPDATE EVENT DETAILS
+
+Find the "details" scene in config.js (around line 109):
+
+text: 'Date: [Your Date Here]\nTime: [Your Time Here]\nPlace: [Your Location Here]...'
+
+Replace with REAL information!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎨 ADDING YOUR 8-BIT CHARACTER:
+
+Currently: Simple stick-figure character (line-art style)
+
+To use YOUR sprite:
+  1. Create/get 32x48 pixel 8-bit character image
+  2. Save as: images/character.png
+  3. In config.js, change:
+     
+     characterSprite: {
+         imagePath: 'images/character.png',  // ← Add this
+         frameWidth: 32,
+         frameHeight: 48,
+         // ...
+     }
+
+The system will:
+  ✓ Automatically load your sprite
+  ✓ Animate limbs for walking
+  ✓ Flip when turning around
+  ✓ Handle all animation timing
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📸 IMAGE SUGGESTIONS:
+
+scene1.jpg   →  Romantic opening scene
+scene2.jpg   →  Your first photo together
+scene3.jpg   →  Special memory #1
+scene4.jpg   →  Happy moment
+scene5.jpg   →  Adventure/travel
+scene6.jpg   →  Recent favorite photo
+scene7.jpg   →  Meaningful moment
+scene8.jpg   →  Beautiful place
+scene9.jpg   →  Looking forward together
+scene10.jpg  →  Perfect finale photo
+
+character.png →  8-bit sprite (32x48px recommended)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎁 CUSTOMIZING PRIZES:
+
+In config.js, find scenes with "prize" field:
+
+question1: {
+    prize: 'Your custom prize message here! 🎁',
+    // ...
+}
+
+Make prizes REAL and exciting:
+  ✓ "Dinner at your favorite restaurant!"
+  ✓ "A surprise weekend getaway!"
+  ✓ "I'll cook your favorite meal!"
+  ✓ "A special gift awaits you!"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🧩 ADDING PUZZLES (OPTIONAL):
+
+The framework is ready! To add puzzles:
+
+1. Edit game.js, find setupPuzzle() function
+2. Add your puzzle type:
+   
+   if (scene.puzzleType === 'riddle') {
+       // Your riddle code here
+   }
+
+3. Update scene in config.js:
+   
+   question1: {
+       puzzleType: 'riddle',
+       puzzle: { 
+           question: "Your riddle?",
+           answer: "answer"
+       },
+       // ...
+   }
+
+See README.md for detailed puzzle examples!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎨 CHANGING COLORS:
+
+In config.js, find the colors section:
+
+colors: {
+    primary: '#8b6f6f',      // Main brown/rose
+    secondary: '#d4a5a5',    // Light pink
+    accent: '#c49a9a',       // Medium pink
+    lineColor: 'rgba(180, 150, 150, 0.6)',
+    skyStart: '#faf8f6',     // Sky top
+    skyEnd: '#e8dfd5'        // Sky bottom
+}
+
+Replace with YOUR color palette!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 FILE OVERVIEW:
+
+index.html       →  Main page (don't edit unless experienced)
+styles.css       →  All styling (minor edits only)
+config.js        →  ⭐ MAIN FILE - Edit story & settings
+game.js          →  Game engine (edit for puzzles/features)
+character.js     →  Character animation (usually no edit)
+world.js         →  World rendering (usually no edit)
+images/          →  ADD YOUR PHOTOS HERE
+README.md        →  Detailed documentation
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 SHARING OPTIONS:
+
+Option A: Zip & Send
+  1. Zip the entire "invitation" folder
+  2. Send via email, USB, or cloud storage
+  3. Partner unzips and opens index.html
+
+Option B: Host Online (FREE)
+  • GitHub Pages
+  • Netlify
+  • Vercel
+  Share a link - no download needed!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️  COMMON MISTAKES:
+
+❌ Forgetting to escape quotes in JavaScript
+   Wrong: "She said "yes""
+   Right: "She said \"yes\""
+   Or use: 'She said "yes"'
+
+❌ Image files don't match names in config
+   Check spelling, extensions (.jpg vs .png)
+
+❌ Not updating event details
+   Line ~109 in config.js - MUST update!
+
+❌ Character sprite path wrong
+   Check: images/character.png exists
+   Match exact path in config.js
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎮 HOW THE GAME WORKS:
+
+1. Opens with welcome screen
+2. Click "Begin the Journey"
+3. Character appears on left side
+4. Walk right using arrow keys
+5. Approach glowing heart stations
+6. Press E to interact
+7. Story modal appears with choices
+8. Make choice → modal closes
+9. Continue walking to next station
+10. Collect prizes along the way
+11. All paths lead to final invitation!
+
+Duration: ~10 minutes of gameplay
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 PRO TIPS:
+
+✓ Test EVERY path before sharing
+✓ Keep text concise (2-4 sentences per scene)
+✓ Make prizes tangible and exciting
+✓ Use high-quality photos
+✓ Character sprite should be simple/clear
+✓ Story should flow chronologically
+✓ Make it personal with inside jokes
+✓ Consider adding background music
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🐛 TROUBLESHOOTING:
+
+Game won't start?
+  → Check browser console (F12) for errors
+  → Make sure all files are in same folder
+  → Try a different browser
+
+Can't see character?
+  → Character starts at x: 450, y: 300
+  → Check if game actually started
+  → Look for stick-figure or your sprite
+
+Stations not appearing?
+  → They appear as glowing circles with hearts
+  → Walk through the world to find them
+  → Check config.js station positions
+
+Can't interact?
+  → Get close to station (within 80 pixels)
+  → Look for "Press E" text above heart
+  → Make sure E key works
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📖 FOR DETAILED HELP:
+
+Read README.md for:
+  • Complete customization guide
+  • Puzzle implementation examples
+  • Advanced features
+  • Developer documentation
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+This is YOUR love story - make it unique and special!
+
+Good luck with your interactive invitation! 💕🎮
